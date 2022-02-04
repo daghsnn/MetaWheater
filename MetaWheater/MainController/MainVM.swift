@@ -11,8 +11,10 @@ import MapKit
 final class MainVM :BaseVM {
     var responseModel : [CityModel]?
     var markers: [MKPointAnnotation] = [MKPointAnnotation]()
+    
     override init() {
         super.init()
+        
     }
     
     func fetchRequest(lat:Double,long:Double){
@@ -29,8 +31,14 @@ final class MainVM :BaseVM {
         }
     }
     
+    func getCity(index: Int) -> CityModel {
+        return responseModel?[index] ?? CityModel(distance: 0, title: "DummyData", location_type: "nil", woeid: 0, latt_long: "nil")
+    }
+
     func getMarkers() -> [MKPointAnnotation]{
-        guard let nearCities = responseModel else {return self.markers}
+        guard let nearCities = responseModel else {
+            print("marker guarda düştü")
+            return self.markers}
         for cities in nearCities {
             let latlong = cities.latt_long?.components(separatedBy: ",")
             guard let lat = latlong?[0], let long = latlong?[1] else {return self.markers}

@@ -21,7 +21,15 @@ final class MainVC: BaseVC<MainVM,MainView> {
         return sB
     }()
     
-    lazy var cv : UICollectionView = {
+    lazy var mapView : MKMapView = {
+        let map = MKMapView()
+        map.mapType = .standard
+        map.showsUserLocation = true
+        map.delegate = self
+        return map
+    }()
+    
+    private lazy var cv : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -31,8 +39,8 @@ final class MainVC: BaseVC<MainVM,MainView> {
         return cv
     }()
     override func viewDidLoad() {
-        self.viewModel = MainVM()
-        self.viewPage = MainView()
+        viewModel = MainVM()
+        viewPage = MainView()
         super.viewDidLoad()
         bindUI()
         configureNavController()
@@ -41,12 +49,11 @@ final class MainVC: BaseVC<MainVM,MainView> {
     
     override func updateUI() {
         super.updateUI()
-        viewPage.updateUI()
-        // Annotions hala çalışmıyor
-//        let annotions = viewModel.getMarkers()
-//        viewPage.mapView.addAnnotations(annotions)
+//        viewPage.viewModel = viewModel
         cv.reloadData()
-        viewPage.viewModel = viewModel
+        let markers = viewModel.getMarkers()
+        mapView.addAnnotations(markers)
+
 
     }
     
@@ -56,12 +63,18 @@ final class MainVC: BaseVC<MainVM,MainView> {
     
     fileprivate func configureNavController(){
         navigationController?.navigationBar.addSubview(searchBar)
+        cv.register(CityCell.self, forCellWithReuseIdentifier: CityCell.cellId)
         view.addSubview(cv)
         cv.snp.makeConstraints { (maker) in
             maker.bottom.leading.trailing.equalToSuperview()
             maker.height.equalToSuperview().multipliedBy(0.5)
         }
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
+        
+        view.addSubview(mapView)
+        mapView.snp.makeConstraints { (maker) in
+            maker.leading.trailing.top.equalToSuperview()
+            maker.height.equalToSuperview().multipliedBy(0.5)
+        }
 
     }
     
@@ -76,28 +89,34 @@ final class MainVC: BaseVC<MainVM,MainView> {
     }
 }
 
-extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UISearchBarDelegate, CLLocationManagerDelegate {
+extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return viewModel.responseModel?.count ?? 0
+        
     }
     
+    //MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath )
-        cell.setNeedsDisplay()
-
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = .red
-        }else{
-            cell.backgroundColor = .black
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityCell.cellId, for: indexPath ) as! CityCell
+        cell.model = viewModel.getCity(index: indexPath.row)
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityCell.cellId, for: indexPath ) as! CityCell
 
-    //MARK:-Searchbar Delegate
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        print(cell.model?.title)
     }
+    
+    //MARK:UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 60)
+    }
+    
+}
+
+extension MainVC : UISearchBarDelegate, CLLocationManagerDelegate,MKMapViewDelegate {
+
     //MARK:-Location Delegate
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -105,6 +124,26 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UISearch
         viewModel.fetchRequest(lat: locValue.latitude, long: locValue.longitude)
     }
 
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print(view.annotation?.coordinate.latitude, " -----" ,view.annotation?.coordinate.longitude)
 
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+
+        return annotationView
+    }
+    
 }
 

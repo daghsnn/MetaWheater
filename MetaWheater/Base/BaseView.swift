@@ -9,19 +9,8 @@ import UIKit
 
 class BaseView: UIView {
 
-    //MARK: - UI Properties
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .clear
-        scrollView.showsVerticalScrollIndicator = true
-        return scrollView
-    }()
-    
-//    let heightLayout = UIApplication.shared.windows.first{ $0.isKeyWindow }?.safeAreaInsets.top ?? 0
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         configureUI()
     }
     
@@ -38,15 +27,4 @@ class BaseView: UIView {
     func configureUI() { }
     func updateUI() { }
     
-    //MARK: - Private Functions
-    func configureScrollView() {
-        if subviews.contains(scrollView) {
-            scrollView.removeFromSuperview()
-        }
-        addSubview(scrollView)
-        
-        scrollView.snp.makeConstraints { (maker) in
-            maker.edges.equalToSuperview()
-        }
-    }
 }

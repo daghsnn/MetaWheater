@@ -8,24 +8,26 @@
 import UIKit
 
 class CityCell: UICollectionViewCell {
+    
     var model: CityModel? {
         didSet{
-            print("cell model ", model?.woeid)
             configureCell()
         }
     }
     
     static let cellId:String = "cityCell"
     
-    private lazy var label : UILabel = {
+    lazy var label : UILabel = {
         let lbl = UILabel()
         lbl.textAlignment = .center
         lbl.font = .systemFont(ofSize: 20)
-        lbl.textColor = .white
+        lbl.textColor = .black
         return lbl
     }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .yellow
         configureView()
     }
     required init?(coder: NSCoder) {
@@ -36,7 +38,6 @@ class CityCell: UICollectionViewCell {
         addSubview(label)
         label.snp.makeConstraints { (maker) in
             maker.center.equalToSuperview()
-            maker.leading.trailing.equalToSuperview()
         }
     }
     
