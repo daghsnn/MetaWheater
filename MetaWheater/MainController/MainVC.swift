@@ -19,10 +19,12 @@ final class MainVC: BaseVC<MainVM,MainView> {
         viewPage = MainView()
         super.viewDidLoad()
         bindUI()
-        configureLocation()
-        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureLocation()
+    }
+    
     override func updateUI() {
         super.updateUI()
         viewPage.viewModel = viewModel
@@ -40,7 +42,7 @@ final class MainVC: BaseVC<MainVM,MainView> {
             
         }
     }
-        
+    
     func configureLocation() {
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -48,12 +50,11 @@ final class MainVC: BaseVC<MainVM,MainView> {
             self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
             self.locationManager.startUpdatingLocation()
         }
-
     }
 }
 
 extension MainVC : UISearchBarDelegate, CLLocationManagerDelegate {
-
+    
     //MARK:-Location Delegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }

@@ -49,23 +49,20 @@ final class WheaterView:BaseView {
         DispatchQueue.main.async {
             self.cv.reloadData()
         }
-
     }
 }
 
 extension WheaterView: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
- 
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.responseModel?.consolidatedWeather?.count ?? 0
     }
-
     //MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WheaterCell.cellId, for: indexPath ) as! WheaterCell
         cell.model = viewModel?.responseModel?.consolidatedWeather?[indexPath.row]
         return cell
     }
-
     //MARK:UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)

@@ -8,7 +8,7 @@
 
 import Foundation
 final class MainService : BaseService<BaseRequestModel,[CityModel]>{
- 
+    
     override init() {
         super.init()
         path = "api/location/search/"

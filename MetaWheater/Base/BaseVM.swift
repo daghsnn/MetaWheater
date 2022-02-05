@@ -17,10 +17,9 @@ typealias viewModelState = ((_ state : CallState)->())
 class BaseVM: NSObject {
     
     var state : viewModelState?
-        
+    
     override init() {
         super.init()
     }
-    
 }
 

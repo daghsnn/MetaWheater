@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Welcome
 struct WheaterModel: Codable {
     let consolidatedWeather: [ConsolidatedWeather]?
     let time, sunRise, sunSet, timezoneName: String?
@@ -16,7 +15,7 @@ struct WheaterModel: Codable {
     let title, locationType: String?
     let woeid: Int?
     let lattLong, timezone: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case consolidatedWeather = "consolidated_weather"
         case time
@@ -31,7 +30,6 @@ struct WheaterModel: Codable {
     }
 }
 
-// MARK: - ConsolidatedWeather
 struct ConsolidatedWeather: Codable {
     let id: Int?
     let weatherStateName, weatherStateAbbr, windDirectionCompass, created: String?
@@ -41,7 +39,7 @@ struct ConsolidatedWeather: Codable {
     let humidity: Double?
     let visibility: Double?
     let predictability: Double?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case weatherStateName = "weather_state_name"
@@ -59,12 +57,11 @@ struct ConsolidatedWeather: Codable {
     }
 }
 
-// MARK: - Parent
 struct Parent: Codable {
     let title, locationType: String?
     let woeid: Int?
     let lattLong: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case title
         case locationType = "location_type"
@@ -73,12 +70,11 @@ struct Parent: Codable {
     }
 }
 
-// MARK: - Source
 struct Source: Codable {
     let title, slug: String?
     let url: String?
     let crawlRate: Double?
-
+    
     enum CodingKeys: String, CodingKey {
         case title, slug, url
         case crawlRate = "crawl_rate"

@@ -12,6 +12,7 @@ protocol ViewModelProtocol: NSObjectProtocol {
     associatedtype ViewModelType: BaseVM
     var viewModel: ViewModelType! { get set }
 }
+
 protocol ViewProtocol: NSObjectProtocol {
     associatedtype PageType: BaseView
     var viewPage: PageType! { get set }
@@ -21,7 +22,7 @@ class BaseVC<VM:BaseVM, V:BaseView>:UIViewController, ViewModelProtocol,ViewProt
     
     var viewModel : VM!
     var viewPage:V!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
@@ -29,7 +30,7 @@ class BaseVC<VM:BaseVM, V:BaseView>:UIViewController, ViewModelProtocol,ViewProt
     }
     
     func updateUI() { }
-
+    
     fileprivate func bindUI() {
         viewModel.state = { [weak self] (result) in
             guard let self = self else { return }
@@ -41,7 +42,7 @@ class BaseVC<VM:BaseVM, V:BaseView>:UIViewController, ViewModelProtocol,ViewProt
             }
         }
     }
- 
+    
     fileprivate func configureView(){
         view.addSubview(viewPage)
         

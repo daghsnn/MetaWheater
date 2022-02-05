@@ -34,7 +34,7 @@ final class MainVM :BaseVM {
     func getCity(index: Int) -> CityModel {
         return responseModel?[index] ?? CityModel(distance: 0, title: "DummyData", location_type: "nil", woeid: 0, latt_long: "nil")
     }
-
+    
     func getMarkers() -> [MKPointAnnotation]{
         guard let nearCities = responseModel else {
             print("marker guarda düştü")
