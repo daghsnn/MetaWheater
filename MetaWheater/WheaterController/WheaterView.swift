@@ -23,7 +23,7 @@ final class WheaterView:BaseView {
         cv.dataSource = self
         cv.showsHorizontalScrollIndicator = true
         cv.isPagingEnabled = true
-        cv.backgroundColor = .blue
+        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -37,9 +37,10 @@ final class WheaterView:BaseView {
         cv.register(WheaterCell.self, forCellWithReuseIdentifier: WheaterCell.cellId)
         addSubview(cv)
         cv.snp.makeConstraints { (maker) in
-            maker.center.equalToSuperview()
+            maker.centerX.equalToSuperview()
             maker.leading.trailing.equalToSuperview().inset(16)
-            maker.height.equalTo(UIView.height * 0.7)
+            maker.height.equalTo(UIView.height * 0.75)
+            maker.bottom.equalToSuperview().inset(UIView.height * 0.1)
         }
     }
     

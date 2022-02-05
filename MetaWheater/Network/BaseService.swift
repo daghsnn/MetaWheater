@@ -45,7 +45,7 @@ class BaseService <BaseRequestModel:BaseRequestProtocol, BaseResponseModel: Deco
     
     var requestModel: BaseRequestModel?
 
-    var baseUrl: String = "https://www.metaweather.com/"
+    var baseUrl: String = Bundle.main.object(forInfoDictionaryKey: "BaseUrl") as! String
     var headers: HTTPHeaders = HTTPHeaders.default
     var encoding: ParameterEncoding? = URLEncoding.httpBody
     var method: HTTPMethod = .get
