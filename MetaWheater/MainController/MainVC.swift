@@ -22,11 +22,7 @@ final class MainVC: BaseVC<MainVM,MainView> {
         configureLocation()
         
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        let selectedAnnotion = viewPage.mapView.selectedAnnotations
-//
-//    }
-    
+
     override func updateUI() {
         super.updateUI()
         viewPage.viewModel = viewModel

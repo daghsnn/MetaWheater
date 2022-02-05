@@ -90,7 +90,6 @@ class WheaterCell: UICollectionViewCell {
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.spacing = 8
-//        stack.translatesAutoresizingMaskIntoConstraints = true
         return stack
     }()
     

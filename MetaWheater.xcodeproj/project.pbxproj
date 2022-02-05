@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A93DC22627AD6EE9001AA484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC22527AD6EE9001AA484 /* AppDelegate.swift */; };
-		A93DC22A27AD6EE9001AA484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC22927AD6EE9001AA484 /* ViewController.swift */; };
 		A93DC22F27AD6EEC001AA484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93DC22E27AD6EEC001AA484 /* Assets.xcassets */; };
 		A93DC23227AD6EEC001AA484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93DC23027AD6EEC001AA484 /* LaunchScreen.storyboard */; };
-		A93DC23C27AD6FF9001AA484 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC23B27AD6FF9001AA484 /* CustomCell.swift */; };
 		A93DC24227AD73D5001AA484 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC24127AD73D5001AA484 /* NetworkManager.swift */; };
 		A93DC24627AD73EC001AA484 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC24527AD73EC001AA484 /* BaseService.swift */; };
 		A93DC24A27AD7403001AA484 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC24927AD7403001AA484 /* BaseVM.swift */; };
@@ -38,11 +36,9 @@
 		47462FBC40B1F930F4ED0F93 /* Pods-MetaWheater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWheater.release.xcconfig"; path = "Target Support Files/Pods-MetaWheater/Pods-MetaWheater.release.xcconfig"; sourceTree = "<group>"; };
 		A93DC22227AD6EE9001AA484 /* MetaWheater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaWheater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93DC22527AD6EE9001AA484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A93DC22927AD6EE9001AA484 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A93DC22E27AD6EEC001AA484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A93DC23127AD6EEC001AA484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93DC23327AD6EEC001AA484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A93DC23B27AD6FF9001AA484 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		A93DC24127AD73D5001AA484 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A93DC24527AD73EC001AA484 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		A93DC24927AD7403001AA484 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
@@ -112,11 +108,9 @@
 				A93DC24827AD73FC001AA484 /* Base */,
 				A93DC24027AD73CB001AA484 /* Network */,
 				A93DC22527AD6EE9001AA484 /* AppDelegate.swift */,
-				A93DC22927AD6EE9001AA484 /* ViewController.swift */,
 				A93DC22E27AD6EEC001AA484 /* Assets.xcassets */,
 				A93DC23027AD6EEC001AA484 /* LaunchScreen.storyboard */,
 				A93DC23327AD6EEC001AA484 /* Info.plist */,
-				A93DC23B27AD6FF9001AA484 /* CustomCell.swift */,
 			);
 			path = MetaWheater;
 			sourceTree = "<group>";
@@ -301,8 +295,6 @@
 				A93DC26227AD7537001AA484 /* MainService.swift in Sources */,
 				A93DC24A27AD7403001AA484 /* BaseVM.swift in Sources */,
 				A93DC26527AD7559001AA484 /* CityModel.swift in Sources */,
-				A93DC22A27AD6EE9001AA484 /* ViewController.swift in Sources */,
-				A93DC23C27AD6FF9001AA484 /* CustomCell.swift in Sources */,
 				A9F1E19327ADAF590088ED95 /* WheaterService.swift in Sources */,
 				A9F1E19F27ADB0AD0088ED95 /* WheaterController.swift in Sources */,
 				A93DC25927AD74A5001AA484 /* MainVC.swift in Sources */,
