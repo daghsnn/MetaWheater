@@ -17,7 +17,7 @@ class CityCell: UICollectionViewCell {
     
     static let cellId:String = "cityCell"
     
-    lazy var label : UILabel = {
+    private lazy var label : UILabel = {
         let lbl = UILabel()
         lbl.textAlignment = .center
         lbl.font = .systemFont(ofSize: 20)
@@ -40,7 +40,10 @@ class CityCell: UICollectionViewCell {
             maker.center.equalToSuperview()
         }
     }
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 20
+    }
     fileprivate func configureCell(){
         guard let model = model else {return}
         label.text = model.title

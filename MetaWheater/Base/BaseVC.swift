@@ -25,6 +25,7 @@ class BaseVC<VM:BaseVM, V:BaseView>:UIViewController, ViewModelProtocol,ViewProt
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
+        configureView()
     }
     
     func updateUI() { }
@@ -40,10 +41,12 @@ class BaseVC<VM:BaseVM, V:BaseView>:UIViewController, ViewModelProtocol,ViewProt
             }
         }
     }
-    
-    override func loadView() {
-        super.loadView()
-        view = viewPage
+ 
+    fileprivate func configureView(){
+        view.addSubview(viewPage)
+        
+        viewPage.snp.makeConstraints { (maker) in
+            maker.edges.equalToSuperview()
+        }
     }
-
 }

@@ -52,7 +52,7 @@ class BaseService <BaseRequestModel:BaseRequestProtocol, BaseResponseModel: Deco
     var path: String = String()
 
     func addParameterToUrlPath(_ parameterString : String) -> Self {
-        self.path = self.path + "?\(parameterString)"
+        self.path = self.path + "\(parameterString)"
         return self
     }
  

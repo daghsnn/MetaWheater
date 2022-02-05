@@ -18,7 +18,7 @@ final class MainVM :BaseVM {
     }
     
     func fetchRequest(lat:Double,long:Double){
-        MainService().addParameterToUrlPath("lattlong=\(lat),\(long)").response {   [weak self] (result) in
+        MainService().addParameterToUrlPath("?lattlong=\(lat),\(long)").response {   [weak self] (result) in
             
             guard let self = self else { return }
             switch result {
@@ -48,6 +48,7 @@ final class MainVM :BaseVM {
             let coordinate = CLLocationCoordinate2D(latitude: convertedLat, longitude: convertedLong)
             marker.title = cities.title ?? ""
             marker.coordinate = coordinate
+            marker.subtitle = String(cities.woeid ?? 0)
             self.markers.append(marker)
         }
         

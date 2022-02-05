@@ -23,6 +23,13 @@
 		A93DC26227AD7537001AA484 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC26127AD7537001AA484 /* MainService.swift */; };
 		A93DC26527AD7559001AA484 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC26427AD7559001AA484 /* CityModel.swift */; };
 		A93DC26827AD756C001AA484 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DC26727AD756C001AA484 /* CityCell.swift */; };
+		A9F1E19327ADAF590088ED95 /* WheaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E19227ADAF590088ED95 /* WheaterService.swift */; };
+		A9F1E19627ADAF7B0088ED95 /* WheaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E19527ADAF7B0088ED95 /* WheaterModel.swift */; };
+		A9F1E19927ADAFD60088ED95 /* WheaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E19827ADAFD60088ED95 /* WheaterView.swift */; };
+		A9F1E19C27ADB00F0088ED95 /* WheaterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E19B27ADB00F0088ED95 /* WheaterVM.swift */; };
+		A9F1E19F27ADB0AD0088ED95 /* WheaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E19E27ADB0AD0088ED95 /* WheaterController.swift */; };
+		A9F1E1A527ADF9AA0088ED95 /* WheaterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E1A427ADF9AA0088ED95 /* WheaterCell.swift */; };
+		A9F1E1A927ADFCC60088ED95 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1E1A827ADFCC60088ED95 /* UIView+Extension.swift */; };
 		F269564A4BF636D8687760D7 /* Pods_MetaWheater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2653E72972AA35BAEEC81B /* Pods_MetaWheater.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +54,13 @@
 		A93DC26127AD7537001AA484 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		A93DC26427AD7559001AA484 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		A93DC26727AD756C001AA484 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		A9F1E19227ADAF590088ED95 /* WheaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterService.swift; sourceTree = "<group>"; };
+		A9F1E19527ADAF7B0088ED95 /* WheaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterModel.swift; sourceTree = "<group>"; };
+		A9F1E19827ADAFD60088ED95 /* WheaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterView.swift; sourceTree = "<group>"; };
+		A9F1E19B27ADB00F0088ED95 /* WheaterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterVM.swift; sourceTree = "<group>"; };
+		A9F1E19E27ADB0AD0088ED95 /* WheaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterController.swift; sourceTree = "<group>"; };
+		A9F1E1A427ADF9AA0088ED95 /* WheaterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterCell.swift; sourceTree = "<group>"; };
+		A9F1E1A827ADFCC60088ED95 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BE2653E72972AA35BAEEC81B /* Pods_MetaWheater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWheater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +106,8 @@
 		A93DC22427AD6EE9001AA484 /* MetaWheater */ = {
 			isa = PBXGroup;
 			children = (
+				A9F1E1A727ADFC9A0088ED95 /* Helper */,
+				A9F1E19127ADAF450088ED95 /* WheaterController */,
 				A93DC25627AD748B001AA484 /* MainController */,
 				A93DC24827AD73FC001AA484 /* Base */,
 				A93DC24027AD73CB001AA484 /* Network */,
@@ -135,6 +151,27 @@
 				A93DC26727AD756C001AA484 /* CityCell.swift */,
 			);
 			path = MainController;
+			sourceTree = "<group>";
+		};
+		A9F1E19127ADAF450088ED95 /* WheaterController */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1E19227ADAF590088ED95 /* WheaterService.swift */,
+				A9F1E19527ADAF7B0088ED95 /* WheaterModel.swift */,
+				A9F1E19827ADAFD60088ED95 /* WheaterView.swift */,
+				A9F1E19B27ADB00F0088ED95 /* WheaterVM.swift */,
+				A9F1E19E27ADB0AD0088ED95 /* WheaterController.swift */,
+				A9F1E1A427ADF9AA0088ED95 /* WheaterCell.swift */,
+			);
+			path = WheaterController;
+			sourceTree = "<group>";
+		};
+		A9F1E1A727ADFC9A0088ED95 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1E1A827ADFCC60088ED95 /* UIView+Extension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		BAD35F4CE7607E4A51F17F3F /* Frameworks */ = {
@@ -259,18 +296,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93DC24227AD73D5001AA484 /* NetworkManager.swift in Sources */,
+				A9F1E19C27ADB00F0088ED95 /* WheaterVM.swift in Sources */,
 				A93DC25C27AD74D8001AA484 /* MainVM.swift in Sources */,
 				A93DC26227AD7537001AA484 /* MainService.swift in Sources */,
 				A93DC24A27AD7403001AA484 /* BaseVM.swift in Sources */,
 				A93DC26527AD7559001AA484 /* CityModel.swift in Sources */,
 				A93DC22A27AD6EE9001AA484 /* ViewController.swift in Sources */,
 				A93DC23C27AD6FF9001AA484 /* CustomCell.swift in Sources */,
+				A9F1E19327ADAF590088ED95 /* WheaterService.swift in Sources */,
+				A9F1E19F27ADB0AD0088ED95 /* WheaterController.swift in Sources */,
 				A93DC25927AD74A5001AA484 /* MainVC.swift in Sources */,
 				A93DC24627AD73EC001AA484 /* BaseService.swift in Sources */,
+				A9F1E1A527ADF9AA0088ED95 /* WheaterCell.swift in Sources */,
 				A93DC25F27AD74E8001AA484 /* MainView.swift in Sources */,
 				A93DC24D27AD7411001AA484 /* BaseVC.swift in Sources */,
+				A9F1E1A927ADFCC60088ED95 /* UIView+Extension.swift in Sources */,
 				A93DC22627AD6EE9001AA484 /* AppDelegate.swift in Sources */,
 				A93DC26827AD756C001AA484 /* CityCell.swift in Sources */,
+				A9F1E19927ADAFD60088ED95 /* WheaterView.swift in Sources */,
+				A9F1E19627ADAF7B0088ED95 /* WheaterModel.swift in Sources */,
 				A93DC25027AD7421001AA484 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BaseURL = "https://www.metaweather.com/";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2F5H7LLA5P;
 				INFOPLIST_FILE = MetaWheater/Info.plist;
@@ -431,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BaseURL = "https://www.metaweather.com/";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2F5H7LLA5P;
 				INFOPLIST_FILE = MetaWheater/Info.plist;
