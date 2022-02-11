@@ -40,6 +40,7 @@ class CityCell: UICollectionViewCell {
         label.snp.makeConstraints { (maker) in
             maker.center.equalToSuperview()
         }
+       
     }
     override func layoutSubviews() {
         super.layoutSubviews()

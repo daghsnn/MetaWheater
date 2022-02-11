@@ -14,11 +14,11 @@ class BaseView: UIView {
         configureUI()
     }
     
-    init() {
-        super.init(frame: .zero)
-        configureUI()
-    }
-    
+//    init() {
+//        super.init(frame: .zero)
+//        configureUI()
+//    }
+//
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

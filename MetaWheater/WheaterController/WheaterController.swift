@@ -26,7 +26,6 @@ final class WheaterController: BaseVC<WheaterVM,WheaterView> {
     
     fileprivate func bindUI(){
         viewModel.fetchWheater(woeid: woeid)
-
     }
     
     fileprivate func configureNavController(){

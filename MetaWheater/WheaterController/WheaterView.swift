@@ -49,6 +49,7 @@ final class WheaterView:BaseView {
         DispatchQueue.main.async {
             self.cv.reloadData()
         }
+        
     }
 }
 

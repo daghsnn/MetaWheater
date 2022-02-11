@@ -111,7 +111,6 @@ class WheaterCell: UICollectionViewCell {
         stackView.addArrangedSubview(windDescription)
         stackView.addArrangedSubview(windLbl)
         stackView.addArrangedSubview(humidityLbl)
-        
         headerLabel.snp.makeConstraints { (maker) in
             maker.leading.trailing.equalToSuperview()
             maker.top.equalToSuperview().inset(16)

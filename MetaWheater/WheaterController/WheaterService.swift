@@ -14,12 +14,3 @@ final class WheaterService : BaseService<BaseRequestModel,WheaterModel>{
         method = .get
     }
 }
-
-final class DaysService : BaseService<BaseRequestModel,[ConsolidatedWeather]>{
-    
-    override init() {
-        super.init()
-        path = "api/location/"
-        method = .get
-    }
-}

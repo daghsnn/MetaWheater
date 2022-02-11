@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-protocol ViewModelProtocol: NSObjectProtocol {
-    associatedtype ViewModelType: BaseVM
-    var viewModel: ViewModelType! { get set }
-}
+//protocol ViewModelProtocol: NSObjectProtocol {
+//    associatedtype ViewModelType: BaseVM
+//    var viewModel: ViewModelType! { get set }
+//}
+//
+//protocol ViewProtocol: NSObjectProtocol {
+//    associatedtype PageType: BaseView
+//    var viewPage: PageType! { get set }
+//}
 
-protocol ViewProtocol: NSObjectProtocol {
-    associatedtype PageType: BaseView
-    var viewPage: PageType! { get set }
-}
-
-class BaseVC<VM:BaseVM, V:BaseView>:UIViewController, ViewModelProtocol,ViewProtocol {
+class BaseVC<VM:BaseVM, V:UIView>:UIViewController {
     
     var viewModel : VM!
     var viewPage:V!
