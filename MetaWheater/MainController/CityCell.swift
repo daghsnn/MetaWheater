@@ -22,6 +22,7 @@ class CityCell: UICollectionViewCell {
         lbl.textAlignment = .center
         lbl.font = .systemFont(ofSize: 20)
         lbl.textColor = .black
+        lbl.isSkeletonable = true
         return lbl
     }()
     
@@ -36,6 +37,7 @@ class CityCell: UICollectionViewCell {
     }
     
     func configureView() {
+        self.isSkeletonable = true
         addSubview(label)
         label.snp.makeConstraints { (maker) in
             maker.center.equalToSuperview()

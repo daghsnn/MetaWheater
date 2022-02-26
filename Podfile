@@ -9,5 +9,6 @@ target 'MetaWheater' do
 	pod 'Alamofire'
 	pod 'SnapKit'
 	pod 'SDWebImage'
+	pod 'SkeletonView'
 
 end

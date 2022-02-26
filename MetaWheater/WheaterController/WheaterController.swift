@@ -10,12 +10,14 @@ import UIKit
 final class WheaterController: BaseVC<WheaterVM,WheaterView> {
     var woeid : Int = Int()
     var cityName : String = String()
+    
     override func viewDidLoad() {
         viewModel = WheaterVM()
         viewPage = WheaterView()
         super.viewDidLoad()
         bindUI()
         configureNavController()
+      
     }
     
     override func updateUI() {

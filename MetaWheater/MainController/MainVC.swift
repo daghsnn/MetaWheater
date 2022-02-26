@@ -19,6 +19,7 @@ final class MainVC: BaseVC<MainVM,MainView> {
         viewPage = MainView()
         super.viewDidLoad()
         bindUI()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {

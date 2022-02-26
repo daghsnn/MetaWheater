@@ -7,12 +7,18 @@
 
 import UIKit
 import MapKit
+import SkeletonView
 
 final class MainView:BaseView {
     
     var viewModel : MainVM = MainVM() {
         didSet{
             updateUI()
+        }
+        willSet {
+            mapView.showGradientSkeleton(usingGradient: SkeletonGradient.init(baseColor: .belizeHole, secondaryColor: .amethyst), animated: true, delay: 0, transition: .crossDissolve(0.7))
+
+            cv.showGradientSkeleton(usingGradient: SkeletonGradient.init(baseColor: .carrot, secondaryColor: .amethyst), animated: true, delay: 0, transition: .crossDissolve(0.5))
         }
     }
     
@@ -23,6 +29,7 @@ final class MainView:BaseView {
         map.mapType = .standard
         map.showsUserLocation = true
         map.delegate = self
+        map.isSkeletonable = true
         return map
     }()
     
@@ -34,6 +41,7 @@ final class MainView:BaseView {
         cv.dataSource = self
         cv.isScrollEnabled = true
         cv.backgroundColor = .clear
+        cv.isSkeletonable = true
         return cv
     }()
     
@@ -61,17 +69,26 @@ final class MainView:BaseView {
     
     override func updateUI() {
         super.updateUI()
-        
-        DispatchQueue.main.async {
-            self.cv.reloadData()
-        }
         let markers = viewModel.getMarkers()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6)) {
+            self.mapView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(1))
+            self.cv.hideSkeleton()
+            self.cv.reloadData()
+
+        }
         mapView.addAnnotations(markers)
     }
     
 }
 
-extension MainView: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate {
+extension MainView: SkeletonCollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return CityCell.cellId
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.responseModel?.count ?? 0
